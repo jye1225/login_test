@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./css/App.css";
+
+import Header from "./components/Header";
+import MainListPage from "./pages/MainListPage";
+import LoginPage from "./pages/Login";
+import RegisterPage from "./pages/Signup";
+
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrap">
+      <Header />
+      <Routes>
+        <Route path="/" element={<MainListPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="*" element={<>잘못된 경로입니다.</>} />
+      </Routes>
     </div>
   );
 }
